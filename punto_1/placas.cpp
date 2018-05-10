@@ -76,8 +76,8 @@ int main () {
 
     for(int i=1; i<n-1 ; i++){
         for(int j=1; j<n-1 ; j++){
-            partialx[i][j]=(espacio0[i-1][j]-espacio0[i+1][j])/(2.0*h);
-            partialy[i][j]=(espacio0[i][j-1]-espacio0[i][j+1])/(2.0*h);
+            partialx[i][j]=-(espacio0[i-1][j]-espacio0[i+1][j])/(2.0*h);
+            partialy[i][j]=-(espacio0[i][j-1]-espacio0[i][j+1])/(2.0*h);
         }
     }
 
