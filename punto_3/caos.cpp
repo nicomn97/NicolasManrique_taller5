@@ -23,25 +23,25 @@ int main () {
 
     double tmax=3000;
     int n=tmax/dt;
-    double x[4]={a,-a,0,0};
-    double k1[4]={0,0,0,0};
-    double k2[4]={0,0,0,0};
-    double k3[4]={0,0,0,0};
-    double k4[4]={0,0,0,0};
-    double q11=a;
-   
+    double x[4]={a,-a,0.0,0.0};
+    double k1[4]={0.0,0.0,0.0,0.0};
+    double k2[4]={0.0,0.0,0.0,0.0};
+    double k3[4]={0.0,0.0,0.0,0.0};
+    double k4[4]={0.0,0.0,0.0,0.0};
+    double q11=x[0];
 
+
+    
+   
     for(int i=0; i<n ; i++){
         rk(x,k1,k2,k3,k4);
+
         if(q11*x[0]<0){
-            cout<<x[1]<<" "<<x[3]<<"\n";
+            cout<<x[0]<<" "<<x[1]<<" "<<x[2]<<" "<<x[3]<<"\n";
         }
         q11=x[0];
     }
-    
-    
 
-    
 
 
 return 0;
@@ -50,10 +50,11 @@ return 0;
 
 
 double fp1 ( double q1 ){
+    
+    double den=(4.0*q1*q1)+(eps*eps);
+    double dom=-2.0*q1;
 
-    double t1=((4.0*q1*q1)+(eps*eps));
-    double p1=(-2.0*q1)/sqrt(t1*t1*t1);
-    return p1;
+    return dom/sqrt(den*den*den);
 
 }
 
